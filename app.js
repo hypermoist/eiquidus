@@ -590,7 +590,7 @@ app.use('/ext/getbasicstats', function(req, res) {
       const currency = lib.get_market_currency_code();
 
       // check if the masternode count api is enabled
-      if (settings.api_page.public_apis.rpc.getmasternodecount.enabled == true && settings.api_cmds['getmasternodecount'] != null && settings.api_cmds['getmasternodecount'] != '') {
+      if (settings.api_page.public_apis.rpc.getgamemastercount.enabled == true && settings.api_cmds['getmasternodecount'] != null && settings.api_cmds['getmasternodecount'] != '') {
         // masternode count api is available
         lib.get_masternodecount(function(masternodestotal) {
           eval('var p_ext = { "block_count": (stats.count ? stats.count : 0), "money_supply": (stats.supply ? stats.supply : 0), "last_price_' + currency.toLowerCase() + '": stats.last_price, "last_price_usd": stats.last_usd_price, "masternode_count": masternodestotal.total }');
@@ -783,7 +783,7 @@ app.use('/ext/getsummary', function(req, res) {
                 let mn_enabled = 0;
 
                 // check if the masternode count api is enabled
-                if (settings.api_page.public_apis.rpc.getmasternodecount.enabled == true && settings.api_cmds['getmasternodecount'] != null && settings.api_cmds['getmasternodecount'] != '') {
+                if (settings.api_page.public_apis.rpc.getgamemastercount.enabled == true && settings.api_cmds['getmasternodecount'] != null && settings.api_cmds['getmasternodecount'] != '') {
                   // masternode count api is available
                   if (masternodestotal) {
                     if (masternodestotal.total)
@@ -850,7 +850,7 @@ app.use('/ext/getnetworkpeers', function(req, res) {
 // get the list of masternodes from local collection
 app.use('/ext/getgamemasterlist', function(req, res) {
   // check if the getmasternodelist api is enabled or else check the headers to see if it matches an internal ajax request from the explorer itself (TODO: come up with a more secure method of whitelisting ajax calls from the explorer)
-  if ((settings.api_page.enabled == true && settings.api_page.public_apis.ext.getmasternodelist.enabled == true) || (req.headers['x-requested-with'] != null && req.headers['x-requested-with'].toLowerCase() == 'xmlhttprequest' && req.headers.referer != null && req.headers.accept.indexOf('text/javascript') > -1 && req.headers.accept.indexOf('application/json') > -1)) {
+  if ((settings.api_page.enabled == true && settings.api_page.public_apis.ext.getgamemasterlist.enabled == true) || (req.headers['x-requested-with'] != null && req.headers['x-requested-with'].toLowerCase() == 'xmlhttprequest' && req.headers.referer != null && req.headers.accept.indexOf('text/javascript') > -1 && req.headers.accept.indexOf('application/json') > -1)) {
     // get the masternode list from local collection
     db.get_masternodes(function(masternodes) {
       // loop through masternode list and remove the mongo _id and __v keys
@@ -869,7 +869,7 @@ app.use('/ext/getgamemasterlist', function(req, res) {
 // returns a list of masternode reward txs for a single masternode address from a specific block height
 app.use('/ext/getgamemasterrewards/:hash/:since', function(req, res) {
   // check if the getmasternoderewards api is enabled
-  if (settings.api_page.enabled == true && settings.api_page.public_apis.ext.getmasternoderewards.enabled == true) {
+  if (settings.api_page.enabled == true && settings.api_page.public_apis.ext.getgamemasterrewards.enabled == true) {
     db.get_masternode_rewards(req.params.hash, req.params.since, function(rewards) {
       if (rewards != null) {
         // loop through the tx list to fix vout values and remove unnecessary data such as the always empty vin array and the mongo _id and __v keys
@@ -895,7 +895,7 @@ app.use('/ext/getgamemasterrewards/:hash/:since', function(req, res) {
 // returns the total masternode rewards received for a single masternode address from a specific block height
 app.use('/ext/getgamemasterrewardstotal/:hash/:since', function(req, res) {
   // check if the getgamemasterrewardstotal api is enabled
-  if (settings.api_page.enabled == true && settings.api_page.public_apis.ext.getmasternoderewardstotal.enabled == true) {
+  if (settings.api_page.enabled == true && settings.api_page.public_apis.ext.getgamemasterewardstotal.enabled == true) {
     db.get_masternode_rewards_totals(req.params.hash, req.params.since, function(total_rewards) {
       if (total_rewards != null) {
         // return the total of masternode rewards
@@ -1125,7 +1125,7 @@ if (!db.fs.existsSync(path.join('./public', settings.shared_pages.page_header.ho
   settings.shared_pages.page_header.home_link_logo = '';
 
 // always disable the rpc masternode list cmd from public apis
-settings.api_page.public_apis.rpc.getmasternodelist = { "enabled": false };
+settings.api_page.public_apis.rpc.getgamemasterlist = { "enabled": false };
 
 // locals
 app.set('explorer_version', package_metadata.version);

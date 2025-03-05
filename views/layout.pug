@@ -346,7 +346,7 @@ html(lang='en')
           if ('#{settings.shared_pages.difficulty}' == 'Hybrid') difficultyType+='<br /><span class="fa-solid fa-sliders"></span><label id="difficultyHybrid"></label>';
           return '<div class="card-header"><strong>#{settings.localization.difficulty}</strong></div><div class="card-body"><div id="difficultyPanelLoading" class="header-panel"><i class="fa-solid fa-spinner fa-spin-pulse"></i></div><div id="difficultypanel" class="header-panel" style="display:none;"><span class="fa-solid fa-sliders"></span>'+difficultyType+'</div></div>';
         }
-        function getMasternodesPanel() {
+        function getGameMastersPanel() {
           return '<div class="card-header"><strong>#{settings.localization.masternodecount}</strong></div><div class="card-body"><div id="masternodePanelLoading" class="header-panel"><i class="fa-solid fa-spinner fa-spin-pulse"></i></div><div id="masternodepanel" class="header-panel" style="display:none;"><span id="spnMasternodeCountOnline" class="fa-solid fa-circle-check" data-bs-toggle="tooltip" data-bs-placement="top"></span><label id="masternodeCountOnline" data-bs-toggle="tooltip" data-bs-placement="top"></label><label>&nbsp;/&nbsp;</label><label id="masternodeCountOffline" data-bs-toggle="tooltip" data-bs-placement="top"></label><span id="spnMasternodeCountOffline" class="fa-solid fa-triangle-exclamation" data-bs-toggle="tooltip" data-bs-placement="top"></span></div></div>';
         }
         function getCoinSupplyPanel() {
@@ -381,7 +381,7 @@ html(lang='en')
               sReturn = getDifficultyPanel();
               break;
             case "masternodes_panel":
-              sReturn = getMasternodesPanel();
+              sReturn = getGameMastersPanel();
               break;
             case "coin_supply_panel":
               sReturn = getCoinSupplyPanel();
