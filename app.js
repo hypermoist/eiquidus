@@ -848,7 +848,7 @@ app.use('/ext/getnetworkpeers', function(req, res) {
 });
 
 // get the list of masternodes from local collection
-app.use('/ext/getmasternodelist', function(req, res) {
+app.use('/ext/getgamemasterlist', function(req, res) {
   // check if the getmasternodelist api is enabled or else check the headers to see if it matches an internal ajax request from the explorer itself (TODO: come up with a more secure method of whitelisting ajax calls from the explorer)
   if ((settings.api_page.enabled == true && settings.api_page.public_apis.ext.getmasternodelist.enabled == true) || (req.headers['x-requested-with'] != null && req.headers['x-requested-with'].toLowerCase() == 'xmlhttprequest' && req.headers.referer != null && req.headers.accept.indexOf('text/javascript') > -1 && req.headers.accept.indexOf('application/json') > -1)) {
     // get the masternode list from local collection
@@ -867,7 +867,7 @@ app.use('/ext/getmasternodelist', function(req, res) {
 });
 
 // returns a list of masternode reward txs for a single masternode address from a specific block height
-app.use('/ext/getmasternoderewards/:hash/:since', function(req, res) {
+app.use('/ext/getgamemasterrewards/:hash/:since', function(req, res) {
   // check if the getmasternoderewards api is enabled
   if (settings.api_page.enabled == true && settings.api_page.public_apis.ext.getmasternoderewards.enabled == true) {
     db.get_masternode_rewards(req.params.hash, req.params.since, function(rewards) {
@@ -886,22 +886,22 @@ app.use('/ext/getmasternoderewards/:hash/:since', function(req, res) {
         // return list of masternode rewards
         res.json(rewards);
       } else
-        res.send({error: "failed to retrieve masternode rewards", hash: req.params.hash, since: req.params.since});
+        res.send({error: "failed to retrieve gamemaster rewards", hash: req.params.hash, since: req.params.since});
     });
   } else
     res.end(settings.localization.method_disabled);
 });
 
 // returns the total masternode rewards received for a single masternode address from a specific block height
-app.use('/ext/getmasternoderewardstotal/:hash/:since', function(req, res) {
-  // check if the getmasternoderewardstotal api is enabled
+app.use('/ext/getgamemasterrewardstotal/:hash/:since', function(req, res) {
+  // check if the getgamemasterrewardstotal api is enabled
   if (settings.api_page.enabled == true && settings.api_page.public_apis.ext.getmasternoderewardstotal.enabled == true) {
     db.get_masternode_rewards_totals(req.params.hash, req.params.since, function(total_rewards) {
       if (total_rewards != null) {
         // return the total of masternode rewards
         res.json(total_rewards);
       } else
-        res.send({error: "failed to retrieve masternode rewards", hash: req.params.hash, since: req.params.since});
+        res.send({error: "failed to retrieve gamemaster rewards", hash: req.params.hash, since: req.params.since});
     });
   } else
     res.end(settings.localization.method_disabled);

@@ -252,21 +252,21 @@ block content
                   div.fw-bold getmasternodelist
                   div
                     em #{settings.localization.api_getmasternodelist}
-                  a(href='/ext/getmasternodelist') #{address}/ext/getmasternodelist
+                  a(href='/ext/getgamemasterlist') #{address}/ext/getgamemasterlist
             if settings.api_page.public_apis.ext.getmasternoderewards.enabled == true
               li
                 p
-                  div.fw-bold getmasternoderewards (/ext/getmasternoderewards/hash/since)
+                  div.fw-bold getgamemasterrewards (/ext/getgamemasterrewards/hash/since)
                   div
-                    em Returns a list of masternode reward transactions for address [hash] that arrived after block height [since]
-                  a(href='/ext/getmasternoderewards/' + settings.api_page.sample_data.address + '/' + settings.api_page.sample_data.blockindex) #{address}/ext/getmasternoderewards/#{settings.api_page.sample_data.address}/#{settings.api_page.sample_data.blockindex}
+                    em Returns a list of gamemaster reward transactions for address [hash] that arrived after block height [since]
+                  a(href='/ext/getgamemasterrewards/' + settings.api_page.sample_data.address + '/' + settings.api_page.sample_data.blockindex) #{address}/ext/getgamemasterrewards/#{settings.api_page.sample_data.address}/#{settings.api_page.sample_data.blockindex}
             if settings.api_page.public_apis.ext.getmasternoderewardstotal.enabled == true
               li
                 p
-                  div.fw-bold getmasternoderewardstotal (/ext/getmasternoderewardstotal/hash/since)
+                  div.fw-bold getgamemasterrewardstotal (/ext/getgamemasterrewardstotal/hash/since)
                   div
-                    em Returns the total number of coins earned in masternode rewards for address [hash] that arrived after block height [since]
-                  a(href='/ext/getmasternoderewardstotal/' + settings.api_page.sample_data.address + '/' + settings.api_page.sample_data.blockindex) #{address}/ext/getmasternoderewardstotal/#{settings.api_page.sample_data.address}/#{settings.api_page.sample_data.blockindex}
+                    em Returns the total number of coins earned in gamemaster rewards for address [hash] that arrived after block height [since]
+                  a(href='/ext/getgamemasterrewardstotal/' + settings.api_page.sample_data.address + '/' + settings.api_page.sample_data.blockindex) #{address}/ext/getgamemasterrewardstotal/#{settings.api_page.sample_data.address}/#{settings.api_page.sample_data.blockindex}
             each extApi in pluginApisExt
               li
                 p
