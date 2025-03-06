@@ -599,7 +599,7 @@ router.get('/network', function(req, res) {
 });
 
 // masternode list page
-router.get('/masternodes', function(req, res) {
+router.get('/gamemasters', function(req, res) {
   // ensure masternode page is enabled
   if (settings.masternodes_page.enabled == true) {
     // lookup the last updated date if necessary
@@ -607,7 +607,7 @@ router.get('/masternodes', function(req, res) {
       res.render(
         'masternodes',
         {
-          active: 'gamemasters',
+          active: 'masternodes',
           last_updated: last_updated_date,
           showSync: db.check_show_sync_message(),
           customHash: get_custom_hash(),
