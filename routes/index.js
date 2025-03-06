@@ -605,9 +605,9 @@ router.get('/gamemasters', function(req, res) {
     // lookup the last updated date if necessary
     get_last_updated_date(settings.masternodes_page.page_header.show_last_updated, 'gamemasters_last_updated', function(last_updated_date) {
       res.render(
-        'gamemasters',
+        'masternodes',
         {
-          active: 'gamemasters',
+          active: 'masternodes',
           last_updated: last_updated_date,
           showSync: db.check_show_sync_message(),
           customHash: get_custom_hash(),
