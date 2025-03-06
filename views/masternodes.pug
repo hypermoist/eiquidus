@@ -93,7 +93,7 @@ block content
               var addr = json[i]['addr'];
 
               if (json[i]['lastseen'] != null)
-                json[i]['lastseen'] = '<span' + (#{settings.shared_pages.date_time.enable_alt_timezone_tooltips} == true ? ' data-bs-toggle="tooltip" data-bs-placement="auto" title="' + format_unixtime(json[i]['lastseen'], true) + '"' : '') + '>' + format_unixtime(json[i]['lastseen']) + '</span>';
+                json[i]['lastseen'] = '<span' + (#{settings.shared_pages.date_time.enable_alt_timezone_tooltips} == true ? ' data-bs-toggle="tooltip" data-bs-placement="auto" title="' + format_unixtime(json[i]['lastseen'], true) + '"' : '') + '</span>';
 
               if (json[i]['lastpaid'] != null && json[i]['lastpaid'] != '' && json[i]['lastpaid'] != '0')
                 json[i]['lastpaid'] = '<span' + (#{settings.shared_pages.date_time.enable_alt_timezone_tooltips} == true ? ' data-bs-toggle="tooltip" data-bs-placement="auto" title="' + format_unixtime(json[i]['lastpaid'], true) + '"' : '') + '>' + format_unixtime(json[i]['lastpaid']) + '</span>';
@@ -118,12 +118,14 @@ block content
           }
         },
         columns: [
+          { name: 'ip_address', data: 'ip_address', className: "ipAddressCol" },
           { name: 'rank', data: 'rank', className: "rankCol" },
           { name: 'network', data: 'network', className: "networkCol" },
           { name: 'addr', data: 'addr', className: "addressCol" },
           { name: 'version', data: 'version', className: "versionCol" },
           { name: 'lastseen', data: 'lastseen', className: "lastSeenCol" },
           { name: 'lastpaid', data: 'lastpaid', className: "lastPaidCol" },
+          { name: 'last_paid_block', data: 'last_paid_block', className: "lastPaidBlockCol" },
           { name: 'activetime', data: 'activetime', className: "activeTimeCol" },
           { name: 'status', data: 'status', className: "statusCol" }
         ],
