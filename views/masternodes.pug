@@ -57,7 +57,7 @@ block content
           }
         },
         ajax: {
-          url: '/ext/getmasternodelist',
+          url: '/ext/getgamemasterlist',
           dataSrc: function(json) {
             for (i = 0; i < json.length; i++) {
               if (json[i]['rank'] != null && json[i]['rank'] > 0)
