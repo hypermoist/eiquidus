@@ -57,7 +57,7 @@ block content
           }
         },
         ajax: {
-          url: '/ext/getmasternodelist',
+          url: '/ext/getgamemasterlist',
           dataSrc: function(json) {
             for (i = 0; i < json.length; i++) {
               if (json[i]['rank'] != null && json[i]['rank'] > 0)
@@ -73,7 +73,7 @@ block content
                 enabled_columns.version = true;
 
               if (json[i]['lastseen'] != null && json[i]['lastseen'] > 0)
-                enabled_columns.lastseen = true;
+                enabled_columns.lastseen = false;
 
               if (json[i]['lastpaid'] != null && json[i]['lastpaid'] > 0)
                 enabled_columns.lastpaid = true;
