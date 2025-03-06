@@ -93,7 +93,9 @@ block content
               var addr = json[i]['addr'];
 
               if (json[i]['lastseen'] != null)
-                json[i]['lastseen'] = '<span' + (#{settings.shared_pages.date_time.enable_alt_timezone_tooltips} == false ? ' data-bs-toggle="tooltip" data-bs-placement="auto" title="' + format_unixtime(json[i]['lastseen'], true) + '"' : '') + '>' + format_unixtime(json[i]['lastseen']) + '</span>';
+                json[i]['lastseen'] = '<span' + (#{settings.shared_pages.date_time.enable_alt_timezone_tooltips} == true ? ' data-bs-toggle="tooltip" data-bs-placement="auto" title="' + format_unixtime(json[i]['lastseen'], true) + '"' : '') + '>' + format_unixtime(json[i]['lastseen']) + '</span>';
+              else
+                json[i]['lastseen'] = '<em>N/A</em>';
 
               if (json[i]['lastpaid'] != null && json[i]['lastpaid'] != '' && json[i]['lastpaid'] != '0')
                 json[i]['lastpaid'] = '<span' + (#{settings.shared_pages.date_time.enable_alt_timezone_tooltips} == true ? ' data-bs-toggle="tooltip" data-bs-placement="auto" title="' + format_unixtime(json[i]['lastpaid'], true) + '"' : '') + '>' + format_unixtime(json[i]['lastpaid']) + '</span>';
@@ -219,7 +221,7 @@ block content
       .cardSpacer.clearfix
     .card.card-default.border-0.cardSpacer
       .card-header
-        strong Gamemaster List
+        strong Masternode List
       table#masternodes-table.table.table-bordered.table-striped.table-paging.table-hover
         - var theadClasses = [];
         if settings.shared_pages.table_header_bgcolor != null && settings.shared_pages.table_header_bgcolor != ''
