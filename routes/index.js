@@ -599,21 +599,21 @@ router.get('/network', function(req, res) {
 });
 
 // masternode list page
-router.get('/masternodes', function(req, res) {
+router.get('/gamemasters', function(req, res) {
   // ensure masternode page is enabled
   if (settings.masternodes_page.enabled == true) {
     // lookup the last updated date if necessary
-    get_last_updated_date(settings.masternodes_page.page_header.show_last_updated, 'masternodes_last_updated', function(last_updated_date) {
+    get_last_updated_date(settings.masternodes_page.page_header.show_last_updated, 'gamemasters_last_updated', function(last_updated_date) {
       res.render(
-        'masternodes',
+        'gamemasters',
         {
-          active: 'masternodes',
+          active: 'gamemasters',
           last_updated: last_updated_date,
           showSync: db.check_show_sync_message(),
           customHash: get_custom_hash(),
           styleHash: get_style_hash(),
           themeHash: get_theme_hash(),
-          page_title_prefix: settings.coin.name + ' ' + 'Masternodes'
+          page_title_prefix: settings.coin.name + ' ' + 'Gamemasters'
         }
       );
     });
