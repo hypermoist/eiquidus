@@ -607,7 +607,7 @@ router.get('/gamemasters', function(req, res) {
       res.render(
         'masternodes',
         {
-          active: 'masternodes',
+          active: 'gamemasters',
           last_updated: last_updated_date,
           showSync: db.check_show_sync_message(),
           customHash: get_custom_hash(),
