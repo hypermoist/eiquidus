@@ -67,7 +67,7 @@ block content
                 enabled_columns.network = true;
 
               if (json[i]['ip_address'] != null && json[i]['ip_address'] != '')
-                enabled_columns.ip_address = true;
+                enabled_columns.ip_address = false;
 
               if (json[i]['version'] != null && json[i]['version'] > 0)
                 enabled_columns.version = true;
@@ -79,7 +79,7 @@ block content
                 enabled_columns.lastpaid = true;
 
               if (json[i]['last_paid_block'] != null && json[i]['last_paid_block'] > 0)
-                enabled_columns.last_paid_block = true;
+                enabled_columns.last_paid_block = false;
 
               if (json[i]['activetime'] != null && json[i]['activetime'] > 0)
                 enabled_columns.activetime = true;
