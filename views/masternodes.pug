@@ -73,7 +73,7 @@ block content
                 enabled_columns.version = true;
 
               if (json[i]['lastseen'] != null && json[i]['lastseen'] > 0)
-                enabled_columns.lastseen = false;
+                enabled_columns.lastseen = true;
 
               if (json[i]['lastpaid'] != null && json[i]['lastpaid'] > 0)
                 enabled_columns.lastpaid = true;
@@ -93,7 +93,7 @@ block content
               var addr = json[i]['addr'];
 
               if (json[i]['lastseen'] != null)
-                json[i]['lastseen'] = '<span' + (#{settings.shared_pages.date_time.enable_alt_timezone_tooltips} == true ? ' data-bs-toggle="tooltip" data-bs-placement="auto" title="' + format_unixtime(json[i]['lastseen'], true) + '"' : '') + '>' + format_unixtime(json[i]['lastseen']) + '</span>';
+                json[i]['lastseen'] = '<span' + (#{settings.shared_pages.date_time.enable_alt_timezone_tooltips} == true ? ' data-bs-toggle="tooltip" data-bs-placement="auto" title="' + format_unixtime(json[i]['lastseen'], true) + '"' : '') + '>'  + '</span>';
 
               if (json[i]['lastpaid'] != null && json[i]['lastpaid'] != '' && json[i]['lastpaid'] != '0')
                 json[i]['lastpaid'] = '<span' + (#{settings.shared_pages.date_time.enable_alt_timezone_tooltips} == true ? ' data-bs-toggle="tooltip" data-bs-placement="auto" title="' + format_unixtime(json[i]['lastpaid'], true) + '"' : '') + '>' + format_unixtime(json[i]['lastpaid']) + '</span>';
