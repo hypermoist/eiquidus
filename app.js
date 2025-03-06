@@ -590,7 +590,7 @@ app.use('/ext/getbasicstats', function(req, res) {
       const currency = lib.get_market_currency_code();
 
       // check if the masternode count api is enabled
-      if (settings.api_page.public_apis.rpc.getgamemastercount.enabled == true && settings.api_cmds['getmasternodecount'] != null && settings.api_cmds['getmasternodecount'] != '') {
+      if (settings.api_page.public_apis.rpc.getgamemastercount.enabled == true && settings.api_cmds['getgamemastercount'] != null && settings.api_cmds['getgamemastercount'] != '') {
         // masternode count api is available
         lib.get_masternodecount(function(masternodestotal) {
           eval('var p_ext = { "block_count": (stats.count ? stats.count : 0), "money_supply": (stats.supply ? stats.supply : 0), "last_price_' + currency.toLowerCase() + '": stats.last_price, "last_price_usd": stats.last_usd_price, "masternode_count": masternodestotal.total }');
@@ -783,7 +783,7 @@ app.use('/ext/getsummary', function(req, res) {
                 let mn_enabled = 0;
 
                 // check if the masternode count api is enabled
-                if (settings.api_page.public_apis.rpc.getgamemastercount.enabled == true && settings.api_cmds['getmasternodecount'] != null && settings.api_cmds['getmasternodecount'] != '') {
+                if (settings.api_page.public_apis.rpc.getgamemastercount.enabled == true && settings.api_cmds['getgamemastercount'] != null && settings.api_cmds['getgamemastercount'] != '') {
                   // masternode count api is available
                   if (masternodestotal) {
                     if (masternodestotal.total)
