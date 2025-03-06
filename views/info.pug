@@ -244,7 +244,7 @@ block content
                 p
                   div.fw-bold getsummary
                   div
-                    em="Returns a summary of coin data including: difficulty, hybrid difficulty, circulating supply, hash rate, " + market_currency + " price, USD price, network connection count, block count" + (settings.api_page.public_apis.rpc.getgamemastercount.enabled == true && settings.api_cmds['getgamemastercount'] != null && settings.api_cmds['getgamemastercount'] != '' ? ', ' + 'count of online masternodes' + ', ' + 'count of offline masternodes' : '')
+                    em="Returns a summary of coin data including: difficulty, hybrid difficulty, circulating supply, hash rate, " + market_currency + " price, USD price, network connection count, block count" + (settings.api_page.public_apis.rpc.getgamemastercount.enabled == true && settings.api_cmds['getgamemastercount'] != null && settings.api_cmds['getgamemastercount'] != '' ? ', ' + 'count of online gamemasters' + ', ' + 'count of offline gamemasters' : '')
                   a(href='/ext/getsummary') #{address}/ext/getsummary
             if settings.api_page.public_apis.ext.getgamemasterlist.enabled == true && settings.api_cmds['getgamemasterlist'] != null && settings.api_cmds['getgamemasterlist'] != ''
               li
