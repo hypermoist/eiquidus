@@ -603,7 +603,7 @@ router.get('/gamemasters', function(req, res) {
   // ensure masternode page is enabled
   if (settings.masternodes_page.enabled == true) {
     // lookup the last updated date if necessary
-    get_last_updated_date(settings.masternodes_page.page_header.show_last_updated, 'gamemasters_last_updated', function(last_updated_date) {
+    get_last_updated_date(settings.masternodes_page.page_header.show_last_updated, 'masternodes_last_updated', function(last_updated_date) {
       res.render(
         'masternodes',
         {
